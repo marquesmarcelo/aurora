@@ -109,9 +109,3 @@ students.component.spec.ts
 ```html
 <app-student-form></app-student-form>
 ```
-## TODO
-
-usar variáveis de ambiente
-
-criar dockerfile
-
