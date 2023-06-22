@@ -1,7 +1,13 @@
 # Estrutura de diretório
+
 https://www.thirdrocktechkno.com/blog/angular-architecture-best-practices/
 
+# Variaveis de ambiente
+
+https://angular.io/guide/build
+
 # CRUD
+
 https://www.syncfusion.com/blogs/post/how-to-build-a-crud-app-in-angular.aspx
 
 https://medium.com/swlh/how-to-make-angular-project-layout-which-requires-many-screens-including-header-footer-and-navbar-3b73cfe69ce7
@@ -19,32 +25,19 @@ ng generate module modules/home --route home --module app.module
 
 ng generate module core --module app.module
 
-ng g c shared/components/layout
-
 ng g c shared/components/header
 
 ng g c shared/components/footer
 
 ng g c shared/components/navbar
 
+ng generate environments
+
 ```
 
 2. Alterar o arquivo `app.component.html`
 ```html
 <app-header></app-header>
-<app-layout></app-layout>
-<app-footer></app-footer>
-```
-
-3. Alterar o arquivo `shared\components\navbar\navbar.component.html`
-```html
-<button type="button" routerLink="/students">Alunos</button>
-<button type="button" routerLink="/classes">Turmas</button>
-<button type="button" routerLink="">Home</button>
-```
-3. Alterar o arquivo `shared\components\layout\layout.component.html`
-
-```html
 <div>
     <div>
         <app-navbar></app-navbar>
@@ -53,6 +46,14 @@ ng g c shared/components/navbar
         <router-outlet></router-outlet>
     </div>
 </div>
+<app-footer></app-footer>
+```
+
+3. Alterar o arquivo `shared\components\navbar\navbar.component.html`
+```html
+<button type="button" routerLink="/students">Alunos</button>
+<button type="button" routerLink="/classes">Turmas</button>
+<button type="button" routerLink="">Home</button>
 ```
 
 4. Adicionar no arquivo `app-routing.module.ts` a seguinte rota default:
