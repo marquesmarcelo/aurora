@@ -109,3 +109,47 @@ students.component.spec.ts
 ```html
 <app-student-form></app-student-form>
 ```
+
+
+# Correção de Erros
+
+1. Erro informando que o componente não é um elemento de um módulo
+
+Mensagem:
+
+```javascript
+Failed: Template parse errors: 
+'app-nav' is not a known element:
+1. If 'app-nav' is an Angular component, then verify that it is part of this module.
+2. If 'app-nav' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+```
+Solução:
+
+Declarar o NavComponent dentro do arquivo de teste `.spec.js`
+
+```javascript
+describe('AppComponent', () => {
+  beforeEach(async(() => {
+      TestBed.configureTestingModule({
+        declarations: [
+          AppComponent,
+          NavComponent
+        ]
+      }).compileComponents();
+    }));
+```
+
+Outra solução seria adicionar  `schemas: [ NO_ERRORS_SCHEMA ]` ao arquivo de `.spec.js`
+```javascript
+beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule
+      ],
+      declarations: [
+        AppComponent
+      ],
+      schemas: [ NO_ERRORS_SCHEMA ]
+    }).compileComponents();
+  }));
+```
