@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EditStudentComponent } from './edit-student.component';
+import { StudentFormComponent } from '../../components/student-form/student-form.component';
 
 describe('EditStudentComponent', () => {
   let component: EditStudentComponent;
@@ -8,7 +9,10 @@ describe('EditStudentComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [EditStudentComponent]
+      declarations: [
+        EditStudentComponent,
+        StudentFormComponent
+      ]
     });
     fixture = TestBed.createComponent(EditStudentComponent);
     component = fixture.componentInstance;
