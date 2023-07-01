@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { environment } from './../environments/environment';
-import { LocalStorageService } from './shared/services/local-storage-service';
+import { environment } from '../environments/environment';
+import { Core as DB } from './shared/services/database/core';
 
 @Component({
   selector: 'app-root',
@@ -8,29 +8,31 @@ import { LocalStorageService } from './shared/services/local-storage-service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(public localStorage: LocalStorageService) {
+  constructor(public database: DB) {
     console.log('production:'+ environment.production); // Logs false for development environment
   }
   title = 'aurora-app';
 
   add() {
-    this.localStorage.add("chave","valor").then((res) => {
-       console.log ("inserted successfully");      
+    this.database.put("chave","valor").then((res: unknown) => {
+       console.debug("inserted successfully");      
+       console.debug(res);      
     })
-    .catch(error => console.log ("error:" + error));
+    .catch((error: Error) => console.log ("error:" + error));
   }
 
   get() {
-    this.localStorage.get("chave").then((res) => {
+    this.database.get("chave").then((res) => {
        console.log ("get value:" + res);      
     })
-    .catch(error => console.log ("error:" + error));
+    .catch((error: Error) => console.log ("error:" + error));
   }
 
   del() {
-    this.localStorage.delete("chave").then((res) => {
+    this.database.delete("chave").then((res) => {
        console.log ("deleted successfully");      
     })
-    .catch(error => console.log ("error:" + error));
+    .catch((error: Error) => console.log ("error:" + error));
   }
 }
+
