@@ -5,67 +5,51 @@ declare var db: any;
 
 @Injectable({ providedIn: 'root' })
 export class LocalStorageService {
-    public storageName = "aurora";
+  public storageName = "aurora";
 
-    constructor() {
-        
-    }
-    add(keyname: any, value: any) {
-        return new Promise(async(resolve, reject) => {
-            if (db != undefined) {
-                const request = db.transaction([this.storageName], "readwrite")
-                    .objectStore(this.storageName).put(value, keyname);
-                request.onsucess = await function (event: any) {
-                    if (event.target.result) {
-                        console.log ("sucess");
-                        resolve("sucess");
-                    }
-                    else {
-                        console.log ("error");
-                        resolve(false);
-                    }
-                }
+  constructor() {
 
-            }
-        });
-      
-    }
-    get(keyname: any) {
-        return new Promise(async(resolve, reject) => {
-            if (db != undefined) {
-                const request = db.transaction([this.storageName], "readwrite")
-                    .objectStore(this.storageName).get(keyname);
-                request.onsucess = await function (event: any) {
-                    if (event.target.result) {
-                        console.log ("sucess");
-                        resolve("sucess");
-                    }
-                    else {
-                        console.log ("error");
-                        resolve(false);
-                    }
-                }
+  }
 
-            }
-        });
+  async add(keyname: any, value: any) {
+    if (db != undefined) {
+      const request = db.transaction([this.storageName], "readwrite")
+      .objectStore(this.storageName).put(value, keyname);
+      request.onsuccess = (event: any) => {
+        if (event.target.result) {
+          console.log ("sucess");
+        } else {
+          console.log ("error");
+        }
+      };
     }
-    delete(keyname: any) {
-        return new Promise(async(resolve, reject) => {
-            if (db != undefined) {
-                const request = db.transaction([this.storageName], "readwrite")
-                    .objectStore(this.storageName).delete(keyname);
-                request.onsucess = await function (event: any) {
-                    if (event.target.result) {
-                        console.log ("sucess");
-                        resolve("sucess");
-                    }
-                    else {
-                        console.log ("error");
-                        resolve(false);
-                    }
-                }
+  }
 
-            }
-        });
+  async get(keyname: any) {
+    if (db != undefined) {
+      const request = db.transaction([this.storageName], "readwrite")
+      .objectStore(this.storageName).get(keyname);
+      request.onsuccess = (event: any) => {
+        if (event.target.result) {
+          console.log ("sucess");
+        } else {
+          console.log ("error");
+        }
+      }
+    };
+  }
+
+  async delete(keyname: any) {
+    if (db != undefined) {
+      const request = db.transaction([this.storageName], "readwrite")
+      .objectStore(this.storageName).delete(keyname);
+      request.onsucess = (event: any) => {
+        if (event.target.result) {
+          console.log ("sucess");
+        } else {
+          console.log ("error");
+        }
+      }
     }
+  }
 }
