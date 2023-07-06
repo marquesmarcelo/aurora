@@ -14,8 +14,4 @@ export abstract class GenericResourceModel<T> {
         this.updatedAt = new Date(this.updatedAt);
       }
     }
-  
-    public toJson(): any {
-      return JSON.parse(JSON.stringify(this));
-    }
   }

@@ -7,7 +7,7 @@ import { Student } from '../models/student.model';
 import { HttpGenericResourceService } from "src/app/shared/services/http-generic-resource-service";
 
 @Injectable({ providedIn: 'root' })
-export class StudentsService extends HttpGenericResourceService<Student> {
+export class StudentsHttpService extends HttpGenericResourceService<Student> {
   constructor(private http: HttpClient) {
     super(http, Student, environment.apiUrl);
   }

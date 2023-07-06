@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-view-student',
-  templateUrl: './view-student.component.html',
-  styleUrls: ['./view-student.component.css']
+  selector: 'app-new-student',
+  templateUrl: './new-student.component.html',
+  styleUrls: ['./new-student.component.css']
 })
-export class ViewStudentComponent  implements OnInit {
+export class NewStudentComponent   implements OnInit {
   id:any;
   sub: any;
 
@@ -26,5 +26,5 @@ export class ViewStudentComponent  implements OnInit {
     
     onBack(): void {
       this._router.navigate(['students']);
-    }
+    }  
 }

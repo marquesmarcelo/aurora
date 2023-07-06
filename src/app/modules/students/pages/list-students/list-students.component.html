@@ -1,3 +1,4 @@
 <p>list-students works!</p>
+<button type="button" [routerLink]="['new']">New</button>
 <app-student-filter></app-student-filter>
-<app-students-grid></app-students-grid>
+<app-students-grid [filter]="filter"></app-students-grid>

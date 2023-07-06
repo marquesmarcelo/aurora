@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-list-students',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./list-students.component.css']
 })
 export class ListStudentsComponent {
-
+  filter: string = '';
 }

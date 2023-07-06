@@ -1,1 +1,24 @@
 <p>student-form works!</p>
+{{mode}}
+<div *ngIf="mode == 'view'">
+    <p>View Mode</p>
+    <p>id: {{item.id}}</p>
+    <p>First Name: {{item.firstName}}</p>
+    <p>Last Name: {{item.lastName}}</p>
+    <p>email: {{item.email}}</p>
+</div>
+
+<div *ngIf="mode == 'new'">
+    <p>New Mode</p>
+    <p>First Name: <input id ='firstName' /> </p>
+    <p>Last Name: <input id ='lasttName' /> </p>
+    <p>email: <input id ='lasttName'/> </p>
+</div>
+
+<div *ngIf="mode == 'edit'">
+    <p>Edit Mode</p>
+    <p>id: {{item.id}}</p>
+    <p>First Name: <input id ='firstName' value="{{item.firstName}}" /> </p>
+    <p>Last Name: <input id ='lasttName' value="{{item.lastName}}" /> </p>
+    <p>email: <input id ='lasttName' value="{{item.email}}" /> </p>
+</div>

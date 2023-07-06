@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { StudentsRoutingModule } from './students-routing.module';
-import { AddStudentComponent } from './pages/add-student/add-student.component';
+import { NewStudentComponent } from './pages/new-student/new-student.component';
 import { ViewStudentComponent } from './pages/view-student/view-student.component';
 import { ListStudentsComponent } from './pages/list-students/list-students.component';
 import { EditStudentComponent } from './pages/edit-student/edit-student.component';
@@ -13,7 +13,7 @@ import { StudentFilterComponent } from './components/student-filter/student-filt
 
 @NgModule({
   declarations: [
-    AddStudentComponent,
+    NewStudentComponent,
     ViewStudentComponent,
     ListStudentsComponent,
     EditStudentComponent,

@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EditStudentComponent } from './edit-student.component';
 import { StudentFormComponent } from '../../components/student-form/student-form.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('EditStudentComponent', () => {
   let component: EditStudentComponent;
@@ -12,6 +13,9 @@ describe('EditStudentComponent', () => {
       declarations: [
         EditStudentComponent,
         StudentFormComponent
+      ],
+      imports: [
+        RouterTestingModule
       ]
     });
     fixture = TestBed.createComponent(EditStudentComponent);
